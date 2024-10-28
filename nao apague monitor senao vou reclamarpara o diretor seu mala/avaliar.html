@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avalie-nos!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            width: 80px;
+            height: auto;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-size: 14px;
+            width: 200px;
+        }
+        .search-bar button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #FF385C;
+            color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .search-bar button:hover {
+            background-color: #D03151;
+        }
+        .rating {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        .rating .star {
+            font-size: 2em;
+            color: #ccc;
+            cursor: pointer;
+        }
+        .rating .star.checked {
+            color: #FF385C;
+        }
+        .feedback-form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .feedback-form button {
+            padding: 10px 20px;
+            background-color: #FF385C;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="download (11).png" alt="Logo Acampamento" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="trabalhe.html">Trabalhe Conosco</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquisar...">
+            <button type="button">Buscar</button>
+        </div>
+    </header>
+
+    <div class="rating">
+        <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+        <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+        <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+        <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+        <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+    </div>
+
+    <div class="feedback-form">
+        <h2>Deixe seu feedback</h2>
+        <textarea id="feedback" rows="5" placeholder="Escreva seu feedback aqui..."></textarea>
+        <button type="button" onclick="submitFeedback()">Enviar Feedback</button>
+    </div>
+
+    <script>
+        const stars = document.querySelectorAll('.star');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = star.getAttribute('data-value');
+                stars.forEach(s => s.classList.remove('checked'));
+                for (let i = 0; i < rating; i++) {
+                    stars[i].classList.add('checked');
+                }
+                console.log(`Avaliação: ${rating} estrela(s)`);
+            });
+        });
+
+        function submitFeedback() {
+            const feedback = document.getElementById('feedback').value;
+            if (feedback.trim() === '') {
+                alert('Por favor, escreva seu feedback antes de enviar.');
+            } else {
+                console.log('Feedback enviado:', feedback);
+                alert('Obrigado pelo seu feedback!');
+                document.getElementById('feedback').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
+

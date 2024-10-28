@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Currículo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <div>
+  
+
+        <h1 contenteditable="true">Venha trabalhar conosco</h1>
+        para isso prencha o curricull abaixo e envie nos:
+        <h1 contenteditable="true">Seu Nome</h1>
+        <p contenteditable="true">Endereço | Cidade, Estado | Telefone | E-mail</p>
+
+        <section>
+            <h2 contenteditable="true">Objetivo</h2>
+            <textarea rows="4" contenteditable="true">Descreva seu objetivo profissional aqui.</textarea>
+        </section>
+        
+        <section>
+            <h2 contenteditable="true">Educação</h2>
+            <ul contenteditable="true">
+                <li><strong>Curso:</strong> Nome do curso - Instituição | Conclusão</li>
+                <li><strong>Curso:</strong> Nome do curso - Instituição | Conclusão</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2 contenteditable="true">Experiência Profissional</h2>
+            <ul contenteditable="true">
+                <li>
+                    <strong>Cargo:</strong> Título do cargo<br>
+                    <strong>Empresa:</strong> Acampamento lhm<br>
+                    <strong>Local:</strong> Localização da empresa<br>
+                    <strong>Período:</strong> Data de início - Data de término (ou "Atual" se ainda estiver trabalhando)<br>
+                    <strong>Descrição:</strong> Descreva suas responsabilidades e realizações no cargo.
+                </li>
+                <li>
+                    <strong>Cargo:</strong> Título do cargo<br>
+                    <strong>Empresa:</strong> Nome da empresa<br>
+                    <strong>Local:</strong> Localização da empresa<br>
+                    <strong>Período:</strong> Data de início - Data de término (ou "Atual" se ainda estiver trabalhando)<br>
+                    <strong>Descrição:</strong> Descreva suas responsabilidades e realizações no cargo.
+                </li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2 contenteditable="true">Habilidades</h2>
+            <ul contenteditable="true">
+                <li>Habilidade 1</li>
+                <li>Habilidade 2</li>
+                <li>Habilidade 3</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2 contenteditable="true">Idiomas</h2>
+            <ul contenteditable="true">
+                <li><strong>Idioma 1:</strong> Nível</li>
+                <li><strong>Idioma 2:</strong> Nível</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2 contenteditable="true">Referências</h2>
+            <textarea rows="4" contenteditable="true">Disponíveis mediante solicitação.</textarea>
+        </section>
+        
+        <button onclick="downloadResume()">Baixar Currículo</button>
+    </div>
+
+    <script>
+        function downloadResume() {
+            const resumeContent = document.documentElement.outerHTML;
+            const blob = new Blob([resumeContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'meu-curriculo.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
+
+

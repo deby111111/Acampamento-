@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color:#FF385C;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            background-color:#FF385C;
+        }
+        .info {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .social {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .social a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #E1306C;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .social a:hover {
+            background-color: #C13584;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Contato</h1>
+
+        <form action="enviar_mensagem.php" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+            <input type="submit" value="Enviar">
+        </form>
+
+        <div class="info">
+            <p>Email: acampamentohtml@gmail.com</p>
+            <p>Telefone: (42)9979-1662 </p>
+        </div>
+
+        <div class="social">
+            <a href="https://www.instagram.com/acampamentolhm.ofc?igsh=YzljYTk1ODg3Zg==" target="_blank">Nos siga no Instagram</a>
+        </div>
+    </div>
+
+</body>
+</html>
